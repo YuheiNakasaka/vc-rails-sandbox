@@ -41,3 +41,6 @@ group :development do
   gem 'ruby-lsp'
   gem 'web-console'
 end
+
+gem 'hotwire-livereload', '~> 1.4', group: :development
+gem 'redis'
