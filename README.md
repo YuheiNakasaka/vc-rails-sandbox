@@ -1,24 +1,16 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Preparation
+### Generate API Client
+```
+brew install openapi-generator
+```
 
-Things you may want to cover:
+```
+openapi-generator generate -i ./config/api_docs/openapi.yml -g ruby -o ./tmp/json_placeholder_client
+```
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Install Ruby Gemsbrew install openapi-generator
+```
+bundle install
+```

@@ -22,6 +22,8 @@ gem 'tzinfo-data', platforms: %i[windows jruby]
 
 gem 'bootsnap', require: false
 
+gem 'openapi_client', path: './tmp/json_placeholder_client'
+
 group :development, :test do
   gem 'debug', platforms: %i[mri windows]
   gem 'erb_lint'

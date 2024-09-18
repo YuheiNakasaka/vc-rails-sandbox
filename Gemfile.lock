@@ -1,3 +1,9 @@
+PATH
+  remote: tmp/json_placeholder_client
+  specs:
+    openapi_client (1.0.0)
+      typhoeus (~> 1.0, >= 1.0.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -107,6 +113,8 @@ GEM
       rubocop (>= 1)
       smart_properties
     erubi (1.13.0)
+    ethon (0.16.0)
+      ffi (>= 1.15.0)
     factory_bot (6.5.0)
       activesupport (>= 5.0.0)
     factory_bot_rails (6.4.3)
@@ -303,6 +311,8 @@ GEM
       actionpack (>= 6.0.0)
       activejob (>= 6.0.0)
       railties (>= 6.0.0)
+    typhoeus (1.4.1)
+      ethon (>= 0.9.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.5.0)
@@ -329,6 +339,7 @@ DEPENDENCIES
   foreman
   hotwire-livereload (~> 1.4)
   importmap-rails
+  openapi_client!
   pg (~> 1.1)
   pry-rails
   puma (>= 5.0)
