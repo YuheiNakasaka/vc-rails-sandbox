@@ -1,0 +1,8 @@
+<div>
+  <h1 class="font-bold text-2xl"><%= @post.title %></h1>
+  <div class="my-4 p-2 border rounded-md border-gray-500">
+    <p><%= @post.body %></p>
+    <p class="text-right text-xs">by <%= @post.user_id %></p>
+  </div>
+  <p><a href="/posts">Back to posts</a></p>
+</div>
