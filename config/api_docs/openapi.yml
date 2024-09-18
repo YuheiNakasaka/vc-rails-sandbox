@@ -1,0 +1,152 @@
+openapi: 3.0.0
+info:
+  title: JSONPlaceholder API
+  version: 1.0.0
+  description: JSONPlaceholderは無料のオンラインREST APIで、テストやプロトタイピングに使用できます。
+
+servers:
+  - url: https://jsonplaceholder.typicode.com
+
+paths:
+  /posts:
+    get:
+      summary: すべての投稿を取得
+      parameters:
+        - in: query
+          name: userId
+          schema:
+            type: integer
+          description: ユーザーID
+
+      responses:
+        "200":
+          description: 成功
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Post"
+
+    post:
+      summary: 新しい投稿を作成
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Post"
+      responses:
+        "201":
+          description: 作成成功
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Post"
+
+  /posts/{id}:
+    get:
+      summary: 特定の投稿を取得
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: 成功
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Post"
+        "404":
+          description: 投稿が見つかりません
+
+    put:
+      summary: 投稿を更新
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Post"
+      responses:
+        "200":
+          description: 更新成功
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Post"
+        "404":
+          description: 投稿が見つかりません
+
+    delete:
+      summary: 投稿を削除
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: 削除成功
+        "404":
+          description: 投稿が見つかりません
+
+  /posts/{id}/comments:
+    get:
+      summary: 特定の投稿のコメントを取得
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: 成功
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Post"
+        "404":
+          description: 投稿が見つかりません
+
+components:
+  schemas:
+    Post:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        body:
+          type: string
+        userId:
+          type: integer
+      required:
+        - title
+        - body
+        - userId
+    PostComment:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        email:
+          type: string
+        body:
+          type: string
+        postId:
+          type: integer
