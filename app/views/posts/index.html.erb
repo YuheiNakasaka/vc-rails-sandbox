@@ -1,12 +1,6 @@
 <div>
   <h1 class="font-bold text-4xl">Posts</h1>
   <% @posts.each do |post| %>
-    <div class="my-4 p-2 border rounded-md border-gray-500">
-      <p>
-        <a href="/posts/<%= post.id %>"><%= post.id %>: <span class="font-bold"><%= post.title %></span></a>
-      </p>
-      <p><%= post.body %></p>
-      <p class="text-right text-xs">by <%= post.user_id %></p>
-    </div>
+    <%= render PostComponent.new(post: post) %>
   <% end %>
 </div>

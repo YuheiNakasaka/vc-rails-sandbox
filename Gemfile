@@ -24,7 +24,10 @@ gem 'bootsnap', require: false
 
 gem 'openapi_client', path: './tmp/json_placeholder_client'
 
+gem 'view_component'
+
 group :development, :test do
+  gem 'capybara'
   gem 'debug', platforms: %i[mri windows]
   gem 'erb_lint'
   gem 'factory_bot_rails'
