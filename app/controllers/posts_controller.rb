@@ -20,19 +20,15 @@ class PostsController < ApplicationController
   def create
     resp = @client.posts_post({ title: params[:title], body: params[:body] })
     if resp.body == params[:body] && resp.title == params[:title]
-      redirect_to posts_path
+      redirect_to posts_path, notice: 'Post created successfully'
     else
       render :new, status: :unprocessable_entity
     end
   end
 
   def update
-    resp = @client.posts_id_put(params[:id], { title: params[:title], body: params[:body] })
-    if resp.body == params[:body] || resp.title == params[:title]
-      redirect_to post_path(params[:id])
-    else
-      render :new, status: :unprocessable_entity
-    end
+    @client.posts_id_put(params[:id], { title: params[:title], body: params[:body] })
+    redirect_to post_path(params[:id]), notice: 'Post updated successfully'
   end
 
   def destroy

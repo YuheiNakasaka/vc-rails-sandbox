@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get 'posts/new', to: 'posts#new', as: :new_post
   get 'posts/:id', to: 'posts#show', as: :post
   get 'posts/:id/edit', to: 'posts#edit', as: :edit_post
-  put 'posts/:id', to: 'posts#update'
+  patch 'posts/:id', to: 'posts#update'
   delete 'posts/:id', to: 'posts#destroy'
 
   # Defines the root path route ("/")

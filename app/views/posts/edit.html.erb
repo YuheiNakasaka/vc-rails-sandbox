@@ -1,5 +1,5 @@
 <div class="mx-auto">
-  <%= form_tag posts_path do %>
+  <%= form_tag post_path(@post.id), method: :patch do %>
     <%= render FormComponent.new(@post) %>
   <% end %>
   <p><a href="/posts/<%= @post.id %>">Back to post</a></p>
