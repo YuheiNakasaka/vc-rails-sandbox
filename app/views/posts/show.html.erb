@@ -1,4 +1,6 @@
 <div>
   <%= render PostComponent.new(post: @post) %>
+  <p><a href="/posts/<%= @post.id %>/edit">Edit</a></p>
+  <p><a href="/posts/<%= @post.id %>" data-turbo-method="delete" data-turbo-confirm="Are you sure?">Delete</a></p>
   <p><a href="/posts">Back to posts</a></p>
 </div>

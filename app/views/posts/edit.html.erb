@@ -1,0 +1,6 @@
+<div class="mx-auto">
+  <%= form_tag posts_path do %>
+    <%= render FormComponent.new(@post) %>
+  <% end %>
+  <p><a href="/posts/<%= @post.id %>">Back to post</a></p>
+</div>
